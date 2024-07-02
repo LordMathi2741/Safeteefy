@@ -6,6 +6,7 @@ using BasePlatform.API.Shared.Domain.Repositories;
 using BasePlatform.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using BasePlatform.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using BasePlatform.API.Shared.Interfaces.ASP.Configuration;
+using BasePlatform.API.Shared.Interfaces.Middleware;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -103,7 +104,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowAllPolicy");
 
-
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 
